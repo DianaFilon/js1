@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select class="select" name="" id="">
+      <option value="NoN">----</option>
+      <option value="0">Камінь</option>
+      <option value="1">Бумага</option>
+      <option value="2">Ножниці</option>
+    </select>
+    <button class="btn">Start</button>
+
+    <script>
+      let sel = document.querySelector(".select");
+      let btn = document.querySelector(".btn");
+
+      btn.onclick = () => {
+        switch (sel.value) {
+          case "0":
+            console.log("Камінь");
+            break;
+          case "1":
+            console.log("Бумага");
+            break;
+          case "2":
+            console.log("Ножниці");
+            break;
+          default:
+            console.log("Не обрано");
+            break;
+        }
+      };
+    </script>
+  </body>
+</html>

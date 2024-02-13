@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="item">
+      <h4>Name</h4>
+      <input class="inp" type="text" />
+      <h4>Last Name</h4>
+      <input class="inp2" type="text" />
+      <h4>Age</h4>
+      <input class="inp3" type="number" />
+      <button class="btn">Sent</button>
+      <button class="btn1">Reset</button>
+    </div>
+    <div class="item">
+      <h5>Привіт: <span class="out"></span></h5>
+      <h5>Твій вік: <span class="out1"> </span></h5>
+    </div>
+    <script>
+      let inp = document.querySelector(".inp");
+      let inp2 = document.querySelector(".inp2");
+      let inp3 = document.querySelector(".inp3");
+      let out = document.querySelector(".out");
+      let out1 = document.querySelector(".out1");
+      let btn = document.querySelector(".btn");
+      let btn1 = document.querySelector(".btn1");
+
+      btn.onclick = () => {
+        out.innerHTML += inp.value + " " + inp2.value;
+        out1.innerHTML += inp3.value;
+      };
+
+      btn1.onclick = () => {
+        out.innerHTML = "";
+        out1.innerHTML = "";
+        inp.value = "";
+        inp2.value = "";
+        inp3.value = "";
+      };
+    </script>
+  </body>
+</html>

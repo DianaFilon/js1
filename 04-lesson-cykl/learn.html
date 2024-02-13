@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="inp" type="text" name="" id="" />
+    <button class="btn">Start</button>
+    <script>
+      let inp1 = document.querySelector(".inp");
+      let btn1 = document.querySelector(".btn");
+
+      btn1.onclick = () => {
+        for (let i = 0; i < 10; i++) {
+          document.write(inp1.value);
+        }
+      };
+    </script>
+  </body>
+</html>

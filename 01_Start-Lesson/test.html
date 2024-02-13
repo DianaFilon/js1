@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="inp" type="text" name="" id="" />
+    <button class="btn">surce</button>
+
+    <script>
+      let inp = document.querySelector(".inp");
+      let btn = document.querySelector(".btn");
+
+      btn.onclick = () => {
+        if (inp.value == "sasha") {
+          console.log("hello," + inp.value);
+        }
+      };
+    </script>
+  </body>
+</html>

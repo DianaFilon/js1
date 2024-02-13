@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        padding: 20px;
+        margin: 0 0 20px;
+        border: 1px solid;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="item">
+        <h3>Вкажіть своє ім’я</h3>
+        <input class="inp1" type="text" placeholder="ім’я" />
+        <button class="btn1">Відправити</button>
+        <h1 class="out1"></h1>
+      </div>
+      <div class="item">
+        <h3>Вкажіть рік народження</h3>
+        <input class="inp2" type="text" placeholder="Рік народження" />
+        <button class="btn2">Порахувати</button>
+        <h2>Ваш вік:<span class="out2"></span></h2>
+      </div>
+      <div class="item">
+        <h3>Вкажіть довжину сторони квадрата</h3>
+        <input
+          class="inp3"
+          type="text"
+          placeholder="довжина сторони квадрату"
+        />
+        <button class="btn3">Порахувати</button>
+        <h2>Периметр:<span class="out3"></span></h2>
+      </div>
+      <br />
+      <div class="item">
+        <h3>Вкажіть радіус кола</h3>
+        <input class="inp4" type="text" placeholder="радіус кола" />
+        <button class="btn4">Порахувати</button>
+        <h2>Площа окружності:<span class="out4"></span></h2>
+      </div>
+      <div class="item">
+        <h3>
+          Вкажіть відстань між двома містами (в км) і за скільки годин ви хочете
+          дістатися
+        </h3>
+        <input class="inp5" type="number" placeholder="відстань" />
+        <input class="inp5_1" type="number" placeholder="час" />
+        <button class="btn5">Порахувати</button>
+        <h2>
+          Швидкість, з якою необхідно рухатися:<span class="out5_1"></span>
+        </h2>
+        <div class="out5"></div>
+      </div>
+      <div class="item">
+        <h3>конвертор валют. Введіть долари</h3>
+        <input class="inp6" type="text" placeholder="usd" />
+        <select class="sel6" name="" id="">
+          <option value="eur">eur</option>
+          <option value="usd">usd</option>
+        </select>
+        <button class="btn6">Порахувати</button>
+        <h2>euro:<span class="out6"></span></h2>
+      </div>
+    </div>
+    <script>
+      let sel6 = document.querySelector(".sel6");
+      let inp1 = document.querySelector(".inp1");
+      let inp2 = document.querySelector(".inp2");
+      const currentYear = new Date().getFullYear();
+      let inp3 = document.querySelector(".inp3");
+      let inp4 = document.querySelector(".inp4");
+      let inp5 = document.querySelector(".inp5");
+      let inp5_1 = document.querySelector(".inp5_1");
+      let inp6 = document.querySelector(".inp6");
+
+      let out1 = document.querySelector(".out1");
+      let out2 = document.querySelector(".out2");
+      let out3 = document.querySelector(".out3");
+      let out4 = document.querySelector(".out4");
+      let out5 = document.querySelector(".out5");
+      let out6 = document.querySelector(".out6");
+
+      let btn1 = document.querySelector(".btn1");
+      let btn2 = document.querySelector(".btn2");
+      let btn3 = document.querySelector(".btn3");
+      let btn4 = document.querySelector(".btn4");
+      let btn5 = document.querySelector(".btn5");
+      let btn6 = document.querySelector(".btn6");
+
+      btn1.onclick = () => {
+        out1.innerHTML = "Привіт," + inp1.value;
+      };
+      btn2.onclick = () => {
+        out2.innerHTML = currentYear - inp2.value;
+      };
+      btn3.onclick = () => {
+        out3.innerHTML = inp3.value * 4;
+      };
+      btn4.onclick = () => {
+        out4.innerHTML = 3.14159 * Math.pow(inp4.value, 2);
+      };
+
+      btn5.onclick = () => {
+        let value1 = inp5.value;
+        let value2 = inp5_1.value;
+
+        out5.innerHTML = value1 / value2;
+      };
+
+      btn6.onclick = () => {
+        const currentYear2 = 0.93;
+        console.log(sel6.value);
+
+        switch (sel6.value) {
+          case "eur":
+            out6.innerHTML = inp6.value * 40 + "UHA";
+            break;
+          case "usd":
+            out6.innerHTML = inp6.value * 39 + "UHA";
+            break;
+          default:
+            break;
+        }
+      };
+    </script>
+  </body>
+</html>
