@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        padding: 20px;
+        margin: 0 0 20px;
+        border: 1px solid;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="item">
+        <h3>Вкажіть свій вік</h3>
+        <input class="inp1" type="number" placeholder="вік" />
+        <button class="btn1">Відправити</button>
+        <h1 class="out1"></h1>
+      </div>
+      <div class="item">
+        <h3>число від 0 до 9</h3>
+        <input class="inp2" type="number" placeholder="від 0 до 9" />
+        <button class="btn2">Відправити</button>
+        <h1 class="out2"></h1>
+      </div>
+      <div class="item">
+        <h3>діапазон чисел</h3>
+        <input class="inp3" type="number" placeholder="від" />
+        <input class="inp3-1" type="number" placeholder="до" />
+        <button class="btn3">Порахувати</button>
+        <h4>сума числел в заданому діапазоні <span class="out3"></span></h4>
+      </div>
+      <div class="item">
+        <h3>введіть два числа</h3>
+        <input class="inp4" type="number" placeholder="1 число" />
+        <input class="inp4-1" type="number" placeholder="2 число" />
+        <button class="btn4">порахувати</button>
+        <h4>спільний дільник<span class="out4"></span></h4>
+      </div>
+      <div class="item">
+        <h3>введіть число</h3>
+        <input class="inp5" type="number" placeholder="число" />
+        <button class="btn5">порахувати</button>
+        <h4>всі дільники цього числа<span class="out5"></span></h4>
+      </div>
+      <div class="item">
+        <h3>
+          Запитай у користувача суму покупки : від 200 до 300 - знижка буде 3%;
+          від 300 до 500 - 5%; від 500 і вище - 7%
+        </h3>
+        <input class="inp6" type="number" placeholder="сума покупки" />
+        <button class="btn6">порахувати</button>
+        <h4>сума до оплати зі знижкою<span class="out6"></span></h4>
+      </div>
+    </div>
+    <script>
+      // task1 Запитай у користувача його вік і визначи, ким він є: дитиною (0-11), підлітком (12-17), дорослим (18_59) або пенсіонером (60 ...), передбач можливість введення невірних даних.
+      function f1() {
+        let inp1 = document.querySelector(".inp1").value;
+        let out1 = document.querySelector(".out1");
+        if (inp1 >= 0 && inp1 <= 11) {
+          out1.innerHTML = "дитина";
+        } else if (inp1 >= 12 && inp1 <= 17) {
+          out1.innerHTML = "підліток";
+        } else if (inp1 >= 18 && inp1 <= 59) {
+          out1.innerHTML = "дорослий";
+        } else if (inp1 >= 59) {
+          out1.innerHTML = "пенсіонер";
+        } else {
+          out1.innerHTML = "---";
+        }
+      }
+      document.querySelector(".btn1").onclick = f1;
+
+      //   task 2 Запитай у користувача число від 0 до 9 і виведи йому спецсимвол, який розташований на цій клавіші (1 !, 2 @, 3 # і т. д).
+
+      function f2() {
+        let inp2 = Number(document.querySelector(".inp2").value);
+        let out2 = document.querySelector(".out2");
+        if (inp2 == 0) {
+          out2.innerHTML = ")";
+        } else if (inp2 == 1) {
+          out2.innerHTML = "!";
+        } else if (inp2 == 2) {
+          out2.innerHTML = "@";
+        } else if (inp2 == 3) {
+          out2.innerHTML = "#";
+        } else if (inp2 == 4) {
+          out2.innerHTML = "$";
+        } else if (inp2 == 5) {
+          out2.innerHTML = "%";
+        } else if (inp2 == 6) {
+          out2.innerHTML = "^";
+        } else if (inp2 == 7) {
+          out2.innerHTML = "&";
+        } else if (inp2 == 8) {
+          out2.innerHTML = "*";
+        } else if (inp2 == 9) {
+          out2.innerHTML = "(";
+        } else {
+          out2.innerHTML = "---";
+        }
+      }
+      document.querySelector(".btn2").onclick = f2;
+
+      //   task 3 Підрахуй суму всіх чисел в заданому користувачем діапазоні.
+
+      function f3() {
+        let inp3 = Number(document.querySelector(".inp3").value);
+        let inp31 = Number(document.querySelector(".inp3-1").value);
+        let out3 = document.querySelector(".out3");
+        let sum = 0;
+        if (inp3 <= inp31) {
+          for (let i = inp3; i <= inp31; i++) {
+            sum += i;
+          }
+          out3.textContent =
+            "Сумма чисел в диапазоне от " +
+            inp3 +
+            " до " +
+            inp31 +
+            " равна " +
+            sum;
+        } else {
+          out3.textContent = "Ошибка: начало диапазона больше конца диапазона.";
+        }
+      }
+      document.querySelector(".btn3").onclick = f3;
+
+      //task 4 Запитай у користувача 2 числа і знайди найбільший спільний дільник.
+      function f4() {
+        let inp4 = Number(document.querySelector(".inp4").value);
+        let inp41 = Number(document.querySelector(".inp4-1").value);
+        let out4 = document.querySelector(".out4");
+        while (inp4 !== 0) {
+          let temp = inp4;
+          inp4 = inp41 % inp4;
+          inp41 = temp;
+        }
+        out4.textContent = inp41;
+      }
+      document.querySelector(".btn4").onclick = f4;
+
+      // task 5  Запитай у користувача число і виведи всі дільники цього числа.
+
+      function f5() {
+        let inp5 = Number(document.querySelector(".inp5").value);
+        let out5 = document.querySelector(".out5");
+        out5.textContent = "";
+        for (let i = 1; i <= inp5; i++) {
+          if (inp5 % i === 0) {
+            out5.textContent += i + " ";
+          }
+        }
+      }
+      document.querySelector(".btn5").onclick = f5;
+
+      // task 6
+      function f6() {
+        let inp6 = Number(document.querySelector(".inp6").value);
+        let out6 = document.querySelector(".out6");
+        if (inp6 >= 200 && inp6 <= 300) {
+          out6.innerHTML = inp6 - inp6 * 0.03;
+        } else if (inp6 > 300 && inp6 <= 500) {
+          out6.innerHTML = inp6 - inp6 * 0.05;
+        } else if (inp6 > 500) {
+          out6.innerHTML = inp6 - inp6 * 0.07;
+        } else {
+          out1.innerHTML = inp6;
+        }
+      }
+      document.querySelector(".btn6").onclick = f6;
+    </script>
+  </body>
+</html>
