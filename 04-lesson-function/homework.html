@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .item {
+      padding: 20px;
+      margin: 0 0 20px;
+      border: 1px solid;
+      border-radius: 20px;
+    }
+  </style>
+
+  <body>
+    <div class="item">
+      <h3>1. Напиши всі можливі варіанти створення функцій.</h3>
+    </div>
+
+    <br />
+    <div class="item">
+      <h3>
+        2. Створи функцію, яка буде виводити кількість переданих їй аргументів.
+      </h3>
+      <button class="btn2">Порахувати</button>
+      <div class="out2"></div>
+    </div>
+    <div class="item">
+      <h3>
+        3. Напиши функцію, яка приймає 2 числа і повертає : -1, якщо перше число
+        менше, ніж друге; 1 - якщо перше число більше, ніж друге; 0 - якщо числа
+        рівні.
+      </h3>
+      <button class="btn3">Порахувати</button>
+      <div class="out3"></div>
+    </div>
+
+    <div class="item">
+      <h3>4. Напиши функцію, яка обчислює факторіал переданого їй числа.</h3>
+      <button class="btn4">Порахувати</button>
+      <div class="out4"></div>
+    </div>
+
+    <div class="item">
+      <h3>
+        Напиши функцію, яка приймає три окремі цифри і перетворює їх в одне
+        число. Наприклад: цифри 1, 4, 9 перетворяться в число 149.
+      </h3>
+      <button class="btn5">Порахувати</button>
+      <div class="out5"></div>
+    </div>
+
+    <div class="item">
+      <h3>
+        Напиши функцію, яка приймає довжину і ширину прямокутника і обчислює
+        його площу. Якщо в функцію передали 1 параметр, то вона обчислює площу
+        квадрата.
+      </h3>
+      <button class="btn6">Порахувати</button>
+      <div class="out6"></div>
+    </div>
+
+    <script>
+      // task 1
+      function myFunction() {
+        // тіло функції
+      }
+      let myFunction1 = function () {
+        // тіло функції
+      };
+      let myFunction2 = () => {
+        // тіло функції
+      };
+
+      //   task2
+      function numArguments() {
+        return arguments.length;
+      }
+      document.querySelector(".btn2").onclick = function () {
+        document.querySelector(".out2").textContent = numArguments(
+          "Diana",
+          "Ira",
+          "Sonya"
+        );
+      };
+      //   task3
+      function myFunction3(x, y) {
+        if (x < y) {
+          return -1;
+        } else if (x > y) {
+          return 1;
+        } else if ((x = y)) {
+          return 0;
+        }
+      }
+      document.querySelector(".btn3").onclick = function () {
+        document.querySelector(".out3").textContent = myFunction3(6, 1);
+      };
+
+      // task 4
+
+      function myFunction4(n) {
+        if (n === 0) {
+          return 1;
+        } else {
+          return n * myFunction4(n - 1);
+        }
+      }
+      document.querySelector(".btn4").onclick = function () {
+        document.querySelector(".out4").textContent = myFunction4(7);
+      };
+      //task 5
+      function myFunction5(a, b, c) {
+        let combinedNumber = parseInt(`${a}${b}${c}`);
+        return combinedNumber;
+      }
+      document.querySelector(".btn5").onclick = function () {
+        document.querySelector(".out5").textContent = myFunction5(7, 9, 3);
+      };
+
+      //task 6
+      function myFunction6(length, width) {
+        if (width === undefined) {
+          return length * length;
+        } else {
+          return length * width;
+        }
+      }
+      document.querySelector(".btn6").onclick = function () {
+        document.querySelector(".out6").textContent = myFunction6(7);
+      };
+    </script>
+  </body>
+</html>
