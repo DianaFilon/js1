@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="item">
+      <h6>
+        Створи об'єкт, що описує автомобіль (виробник, модель, рік випуску,
+        середня швидкість, обсяг паливного баку, середня витрата палива на 100
+        км., водії), і наступні методи для роботи з цим об'єктом: Метод, який
+        виводить на екран інформацію про автомобіль. Додавання ім’я водія у
+        список Перевірка водія на наявність його ім’я у списку. Підрахунок
+        необхідного часу та кількості палива для подолання переданої відстані з
+        середньою швидкістю. Враховуй, що через кожні 4 години дороги водієві
+        необхідно робити перерву на 1 годину.
+      </h6>
+      <div class="out"></div>
+    </div>
+
+    <div class="item">
+      <h6>
+        Створити об'єкт, що описує час (години, хвилини, секунди), і такі
+        функції для роботи з цим об'єктом: Для виведення часу на екран. Зміни
+        часу на передану кількість секунд. Зміни часу на передану кількість
+        хвилин. Зміни часу на передану кількість годин. Враховуйте, що в
+        останніх 3-х функціях, при зміні однієї частини часу, може змінитися і
+        інша. Наприклад: якщо до часу «20:59:45» додати 30 секунд, то повинно
+        вийти «21:00:15», а не «20:59:75». Також потрібно передбачити можливість
+        того що користувач може передати 150 секунд, або 75 хвилин.
+      </h6>
+      <div class="out2"></div>
+    </div>
+
+    <script>
+      const car = {
+        виробник: "Германія",
+        модель: "BMW",
+        рік: 2015,
+        "середня швидкість": "100км/год",
+        "обсяг паливного баку": 68,
+        "середня витрата палива на 100 км": "5,7л",
+        водії: ["Diana"],
+      };
+
+      let out = document.querySelector(".out");
+      out.innerHTML = `
+         <div class="car">
+             <h2 class="country"> ${car.виробник}</h2>
+             <p class="model"> ${car.модель}</p>
+             <p class="year"> ${car.рік}</p>
+             <p class="speed">${car["середня швидкість"]}</p>
+             <p class="tank">${car["обсяг паливного баку"]}</p>
+             <p class="fuel">${car["середня витрата палива на 100 км"]}</p>
+             <p class="driver"> ${car.водії}</p>
+             </div>
+               `;
+
+      function addDriver(name) {
+        if (!car.водії.includes(name)) {
+          car.водії.push(name);
+          console.log(`Ім'я ${name} успішно додано до списку водіїв.`);
+        } else {
+          console.log(`Ім'я ${name} вже присутнє у списку водіїв.`);
+        }
+      }
+
+      //перевірка
+      addDriver("Diana"); // Вже присутнє ім'я
+      addDriver("Sasha"); // Додати нове ім'я
+
+      function createTravel(distance, car) {
+        let speed = parseInt(car["середня швидкість"]);
+        let fuel = parseFloat(car["середня витрата палива на 100 км"]);
+        let time = distance / speed;
+        let паливо = fuel * (distance / 100);
+        let chill = Math.floor(time / 4);
+        time += chill; // Додаємо час перерв до загального часу подорожі
+
+        return { час: time, паливо: паливо };
+      }
+      let відстань = 400;
+      let результат = createTravel(відстань, car);
+      console.log("Час подорожі:", результат.час, "годин");
+      console.log("Кількість палива:", результат.паливо, "л");
+
+      // task 2
+
+      const time = {
+        hours: 15,
+        minutes: 11,
+        seconds: 21,
+      };
+
+      function displayTime() {
+        return `${time.hours}:${time.minutes}:${time.seconds}`;
+      }
+
+      function addHours(morehours) {
+        time.hours += morehours;
+        while (time.hours >= 24) {
+          time.hours -= 24;
+        }
+        while (time.hours < 0) {
+          time.hours += 24;
+        }
+      }
+      function addMinutes(moreminutes) {
+        time.minutes += moreminutes;
+        time.minutes += moreminutes;
+        while (time.minutes >= 60) {
+          time.minutes -= 60;
+          time.hours++;
+        }
+        while (time.minutes < 0) {
+          time.minutes += 60;
+          time.hours--;
+        }
+        addHours(0);
+      }
+      function addSeconds(moreseconds) {
+        time.seconds += moreseconds;
+        while (time.seconds >= 60) {
+          time.seconds -= 60;
+          time.minutes++;
+        }
+        while (time.seconds < 0) {
+          time.seconds += 60;
+          time.minutes--;
+        }
+        addMinutes(0); // Перевірка та коригування хвилин
+      }
+
+      addHours(2);
+      addMinutes(29);
+      addSeconds(20);
+
+      let out2 = document.querySelector(".out2");
+      out2.innerHTML = displayTime();
+    </script>
+  </body>
+</html>

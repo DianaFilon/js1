@@ -10,7 +10,7 @@
       function buttonNext(next) {
         fetch(`https://rickandmortyapi.com/api/character?page=${next}`)
           .then((data) => data.json())
-          .then((data) => console.log(data));
+          .then((data) => console.log(data.info.name));
       }
 
       buttonNext(3);
