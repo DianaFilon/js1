@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <header class="header">
+          <div class="header__out"></div>
+        </header>
+        <main class="main">
+          <div class="card">
+            <img class="card__img" src="" alt="" />
+            <div class="card__content">
+              <h2 class="card__title"></h2>
+              <h5 class="card__rade"></h5>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      // https://rickandmortyapi.com/api/character?page=1
+
+      let main = document.querySelector(".main");
+      let out = document.querySelector(".header__out");
+
+      function showAll() {
+        fetch("https://rickandmortyapi.com/api/character?page=1")
+          .then((data) => data.json())
+          .then((data) => {
+            console.log(data.data);
+            rendor(data.data);
+          })
+          .catch((error) => console.log("Помилка" + " " + error));
+      }
+      showAll();
+    </script>
+  </body>
+</html>

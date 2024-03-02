@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="inp" type="checkbox" /> task 1
+    <div class="count">0</div>
+    <script>
+      let inp = document.querySelector(".inp");
+      let out = document.querySelector(".count");
+      let count = 0;
+
+      inp.addEventListener("change", () => {
+        if (inp.checked) {
+          out.textContent = ++count;
+        } else {
+          out.textContent = --count;
+        }
+      });
+    </script>
+  </body>
+</html>
