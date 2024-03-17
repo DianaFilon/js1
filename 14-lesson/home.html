@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h3>https://randomuser.me/api/</h3>
+    <ol>
+      <li>Вивести 10 юзерів</li>
+      <li>По кліку ми зберігаемо</li>
+
+      <li>Показати збереженних</li>
+    </ol>
+
+    <div class="favorit">
+      <div class="count">0</div>
+      <button>show</button>
+    </div>
+
+    <main class="usersContainer">Сюди Юзери</main>
+
+    <script>
+      fetch("https://rickandmortyapi.com/api/character?page=1")
+        .then((data) => data.json())
+        .then((data) => {
+          console.log(data.data);
+        });
+    </script>
+  </body>
+</html>
